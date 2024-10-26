@@ -10,7 +10,7 @@ function Avatar({seed, className } : { seed: string; className?:string }) {
 
   const svg = avatar.toString(); 
 
-
+  console.log("test")
   const dataUrl = `data:image/svg+xml;base64,${Buffer.from(svg).toString(
     "base64"
   )}`;
