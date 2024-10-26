@@ -1,0 +1,4 @@
+configurationset:
+  - configuration:
+      name: postgresql_config
+      uri: postgresql://ep-wild-lab-a5ironsm.us-east-2.aws.neon.tech/akasha?user=akasha_owner&password=urezKb7jiG9w
