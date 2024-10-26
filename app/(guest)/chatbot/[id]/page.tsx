@@ -1,5 +1,5 @@
 "use client";
-import Avatar from "@/components/Avatar";
+//import Avatar from "@/components/Avatar";
 //import Messages from "@/components/Messages";
 import { Button } from "@/components/ui/button";
 import {
@@ -37,6 +37,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { UserCircle } from "lucide-react";
+import Image from "next/image";
 //import { usePathname } from "next/navigation";
 
 const formSchema = z.object({
@@ -110,8 +111,8 @@ function ChatbotPage({ params: { id } }: { params: { id: string } }) {
       return;
     }
 
-   //const sanitizedName: String = message.replace(/[^a-zA-Z0-9_-]/g, '');
-   console.log(message)
+    //const sanitizedName: String = message.replace(/[^a-zA-Z0-9_-]/g, '');
+    console.log(message);
     const userMessage: Message = {
       id: Date.now(),
       content: message,
@@ -144,7 +145,7 @@ function ChatbotPage({ params: { id } }: { params: { id: string } }) {
           name: name,
           chat_session_id: chatId,
           chatbot_id: id,
-          content: message
+          content: message,
         }),
       });
 
@@ -162,7 +163,6 @@ function ChatbotPage({ params: { id } }: { params: { id: string } }) {
     }
   }
 
-  
   return (
     <div className="w-full h-screen flex bg-gray-100">
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -214,10 +214,17 @@ function ChatbotPage({ params: { id } }: { params: { id: string } }) {
       </Dialog>
 
       <div className="flex flex-col w-full max-w-3xl mx-auto bg-white md:rounded-t-lg shadow-2xl md:mt-10">
-        <div className="pb-4 border-b sticky top-0 z-50 bg-[#4D7DFB] py-5 px-10 text-white md: rounded-lg flex items-center space-x-4">
-          <Avatar
+        <div className="pb-4 border-b sticky top-0 z-50 bg-black py-5 px-10 text-white md: rounded-lg flex items-center space-x-4">
+          {/* <Avatar
             seed={chatBotData?.chatbots?.name || "undefined"}
             className="h-12 w-12 bg-white rounded-full border-2 border-white"
+          />*/}
+          <Image
+            src="/download.png"
+            alt="Logo"
+            width={40}
+            height={40}
+            className="filter brightness-0 invert"
           />
           <div>
             <h1 className="truncate text-lg">{chatBotData?.chatbots?.name}</h1>
@@ -226,25 +233,22 @@ function ChatbotPage({ params: { id } }: { params: { id: string } }) {
             </p>
           </div>
         </div>
-        {/* 
-
-<div className="flex flex-col space-y-4 p-4 bg-gray-50">
-        {messages.map((msg) => (
-            <div key={msg.id} className={`p-2 rounded-lg ${msg.sender === "user" ? "bg-blue-200 text-right" : "bg-gray-200 text-left"}`}>
-              <p className="text-sm">{msg.content}</p>
-              <span className="text-xs text-gray-500">{msg.created_at}</span>
-            </div>
-          ))}
-         </div>*/}
 
         <div className="flex-1 flex flex-col h-full overflow-y-auto space-y-4 p-4 rounded-lg">
           {messages.map((msg) => {
             const isSender = msg.sender !== "user";
-            const createdAtTimestamp = typeof msg.created_at === 'string' 
-            ? Date.parse(msg.created_at) 
-            : msg.created_at;
-            const date = new Date(createdAtTimestamp); 
-            const formattedTime = date instanceof Date && !isNaN(date.getTime()) ? date.toLocaleDateString([], { hour: '2-digit', minute: '2-digit' }) : 'Invalid time';
+            const createdAtTimestamp =
+              typeof msg.created_at === "string"
+                ? Date.parse(msg.created_at)
+                : msg.created_at;
+            const date = new Date(createdAtTimestamp);
+            const formattedTime =
+              date instanceof Date && !isNaN(date.getTime())
+                ? date.toLocaleDateString([], {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })
+                : "Invalid time";
             return (
               <div
                 key={msg.id}
@@ -253,27 +257,24 @@ function ChatbotPage({ params: { id } }: { params: { id: string } }) {
                 <div className="chat-image avatar ">
                   <div className="flex w-10 rounded-full items-end justify-end">
                     {isSender ? (
-                      <Avatar
-                        seed={chatBotData?.chatbots?.name || "undefined"}
-                        className="h-10 w-10 rounded-full"
+                      <Image
+                        src="/download.png"
+                        alt="Logo"
+                        width={20}
+                        height={20}
                       />
                     ) : (
                       <>
-                       <div className="flex items-end justify-end w-10 h-10">
-                      <UserCircle 
-                      className="text-[#2991EE] h-8 w-8 flex items-end rounded-full" />
-                       </div>
-                       </>
-                       
+                        <div className="flex items-end justify-end w-10 h-10">
+                          <UserCircle className="text-[#2991EE] h-8 w-8 flex items-end rounded-full" />
+                        </div>
+                      </>
                     )}
                   </div>
                 </div>
                 <div className="chat-header">
                   {isSender ? chatBotData?.chatbots?.name : "User"}{" "}
-                  <time className="text-xs opacity-50">
-                  
-                    {formattedTime}
-                  </time>
+                  <time className="text-xs opacity-50">{formattedTime}</time>
                 </div>
                 <div className="chat-bubble bg-[#4D7DFB] text-white">
                   {msg.content}

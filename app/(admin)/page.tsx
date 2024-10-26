@@ -5,8 +5,9 @@ export default function Home() {
   return (
     <main className="p-10 bg-white m-10 rounded-md w-full">
       <h1 className="text-4xl font-light">
-        Bem-vindo ao{" "}
-        <span className="text-[#64B5F5] font-semibold">Assistente {" "}AI</span>
+        Bem-vindo ao{" "}Assistente{" "}
+        <span className="text-[#3c4348] font-semibold">{" "}Mansão Joias</span>
+
       </h1>
       <h2 className="mt-2 mb-10">
       Um chatbot de IA poderoso e flexível, que você pode personalizar e treinar
@@ -17,7 +18,7 @@ export default function Home() {
       </h2>
 
       <Link href="/create-chatbot">
-        <Button className="bg-[#64B5F5]">
+        <Button className="bg-black">
           Vamos começar criando seu primeiro chatbot
         </Button>
       </Link>

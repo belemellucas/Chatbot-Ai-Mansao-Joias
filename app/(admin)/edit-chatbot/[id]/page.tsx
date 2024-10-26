@@ -14,6 +14,7 @@ import { GET_CHATBOT_BY_ID } from "@/graphql/queries/queries";
 import { GetChatbotByIdResponse, GetChatbotByIdVariables } from "@/types/types";
 import { useMutation, useQuery } from "@apollo/client";
 import { Copy } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { FormEvent, useEffect, useState } from "react";
@@ -110,9 +111,18 @@ function EditChatbot({ params: { id } }: { params: { id: string } }) {
   }
   if (loading)
     return (
-      <div className="mx-auto animate-spin p-10">
-        <Avatar seed="Akasha Support Agent" />
-      </div>
+      // <div className="mx-auto animate-spin p-10">
+      //   <Avatar seed="Akasha Support Agent" />
+      // </div>
+      <div className="flex items-center justify-center h-full w-full">
+        <Image
+            src="https://images.yampi.me/assets/stores/puroouro/uploads/logo/66ef3e9955efc.png"
+            alt="Loading"
+            width={200}
+            height={100}
+            className="animate-pulse"
+          />
+        </div>
     );
 
   if (error) return <p>Error: {error.message}</p>;
@@ -123,7 +133,7 @@ function EditChatbot({ params: { id } }: { params: { id: string } }) {
     <div className="px-0 md:p-10">
       <div
         className="md:sticky md:top-0 z-50 sm:max-w-sm ml-auto
-        space-y-2 md:border p-5 rouded-lg bg-[#299]"
+        space-y-2 md:border p-5 rouded-lg bg-[#3a3c3c]"
       >
         <h2 className="text-white text-sm font-bold">Link to Chat </h2>
         <p className="text-sm italic text-white">

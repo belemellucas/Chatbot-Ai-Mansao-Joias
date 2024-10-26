@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input'
 import { CREATE_CHATBOT } from '@/graphql/mutations/mutations'
 import { useMutation } from '@apollo/client'
 import { useUser } from '@clerk/nextjs'
+//import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import React, { FormEvent, useState } from 'react'
 
@@ -38,10 +39,20 @@ function CreateChatbot() {
     if (!user) {
         return null;
     }
+ 
+    
   return (
     <div className="flex flex-col items-center justify-center md:flex-row
     md:space-x-10 bg-white p-10 rounded-md m-10">
-      <Avatar seed="create-chatbot" />
+       <Avatar seed="create-chatbot" /> 
+     {/* <Image
+  src="/download.png" // Corrigido o caminho para referenciar corretamente
+  alt="Logo"
+  width={50} // Defina a largura desejada
+  height={50} // Defina a altura desejada
+  // layout="responsive" // Para manter a imagem responsiva
+/>*/}
+   
       <div>
          <h1 className="text-xl lg:text-3xl font-semibold">Criar</h1>
          <h2 className="font-ligth">

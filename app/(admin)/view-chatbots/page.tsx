@@ -35,11 +35,12 @@ async function ViewChatbots() {
   );
 
   return (
-    <div className="flex-1 pb-20 p-10">
+    <div className="flex-1 pb-10 p-10">
       <div>Ver chatbots</div>
       <h1 className="text-xl lg:text-3xl font-semibold mb-5">
         Chatbots ativos
       </h1>
+     
       {sortedChatbotsByUser.length === 0 && (
         <div>
           <p>
@@ -90,6 +91,7 @@ async function ViewChatbots() {
           </Link>
         ))}
       </ul>
+     
     </div>
   );
 }
