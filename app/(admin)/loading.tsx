@@ -21,4 +21,4 @@ export default Loading
 
 
  {/*  <div className="mx-auto p-10">
-             <Avatar seed="Akasha Support Agent" /> */}
+<Avatar seed="Akasha Support Agent" /> */}
