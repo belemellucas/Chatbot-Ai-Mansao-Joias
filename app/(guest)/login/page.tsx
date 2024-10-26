@@ -6,8 +6,8 @@ function LoginPage() {
     return ( 
         <div className="flex flex-col justify-center items-center min-h-screen bg-[#c2c8cc]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center w-full max-w-4xl px-5">
-          <div className="flex flex-col items-center justify-center space-y-5 text-white">
-            <div className="rounded-full p-5">
+          <div className="flex flex-col items-center justify-center text-white">
+            <div className="rounded-full pt-5 md:pt-0 md:p-5">
               {/* <Avatar seed="Akasha Support Agent" className="h-60 w-60" /> bg-[#64B5F5] */}
               <Image
         src="https://images.yampi.me/assets/stores/puroouro/uploads/logo/66ef3e9955efc.png"
