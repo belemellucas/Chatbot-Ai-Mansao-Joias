@@ -133,15 +133,15 @@ function EditChatbot({ params: { id } }: { params: { id: string } }) {
     <div className="px-0 md:p-10">
       <div
         className="md:sticky md:top-0 z-50 sm:max-w-sm ml-auto
-        space-y-2 md:border p-5 rouded-lg bg-[#3a3c3c]"
+        space-y-2 md:border p-5 rouded-lg bg-white"
       >
-        <h2 className="text-white text-sm font-bold">Link to Chat </h2>
-        <p className="text-sm italic text-white">
+        <h2 className="text-black text-sm font-bold">Link do Chat </h2>
+        <p className="text-sm italic text-black">
         Compartilhe este link com os clientes para iniciar conversas com seus
         bot de bate-papo
         </p>
         <div className="flex items-center space-x-2">
-          <Link href={url} className="w-full cursor-pointer text-[#fefeff] hover:opacity-50">
+          <Link href={url} className="w-full cursor-pointer text-[#000000] hover:text-[#b5b5b5]">
             <Input value={url} readOnly className="cursor-pointer" />
           </Link>
 
@@ -200,6 +200,7 @@ function EditChatbot({ params: { id } }: { params: { id: string } }) {
           >
             <Input
               type="text"
+             className="border-2 border-gray-300"
               placeholder="Exemplo: se o cliente solicitar preços, forneça a página de preços: www.example.com/pricing"
               value={newCharacteristic}
               onChange={(e) => setNewCharacteristic(e.target.value)}

@@ -28,13 +28,13 @@ async function ReviewSession({ params: {id} }: {params: {id: string }}) {
 
    return (
    <div className="flex-1 p-10 pb-24">
-      <h1 className="text-xl lg:text-3xl font-semibold">Session Review</h1>
+      <h1 className="text-xl lg:text-3xl font-semibold">Revisão da sessão</h1>
       <p className="font-light text-xs text-gray-400 mt-2">
-        Started at {new Date(created_at).toLocaleString()}
+      Começou em&nbsp;{new Date(created_at).toLocaleString()}
       </p>
       
       <h2 className="font-light mt-2">
-        Between {name} &{" "}
+      Entre {name} &{" "}
         <span className="font-extrabold">
             {guestName} ({email})
         </span>

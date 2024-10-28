@@ -38,6 +38,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { UserCircle } from "lucide-react";
 import Image from "next/image";
+import { LightningBoltIcon } from "@radix-ui/react-icons";
+
 //import { usePathname } from "next/navigation";
 
 const formSchema = z.object({
@@ -116,7 +118,7 @@ function ChatbotPage({ params: { id } }: { params: { id: string } }) {
     const userMessage: Message = {
       id: Date.now(),
       content: message,
-      created_at: new Date().toDateString(),
+      created_at: new Date().toISOString(),
       chat_session_id: parseInt(chatId),
       sender: "user",
     };
@@ -229,7 +231,7 @@ function ChatbotPage({ params: { id } }: { params: { id: string } }) {
           <div>
             <h1 className="truncate text-lg">{chatBotData?.chatbots?.name}</h1>
             <p className="text-sm text-gray-300">
-              Normalmente responde instantaneamente
+              Normalmente responde <p className="flex">instantaneamente&nbsp;<LightningBoltIcon style={{ color: "#FFFF00" }}/></p>
             </p>
           </div>
         </div>

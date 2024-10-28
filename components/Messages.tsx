@@ -33,14 +33,14 @@ function Messages({ messages, chatbotName} : {
             >
                 {isReviewsPage && (
                     <p className="absolute -bottom-5 text-xs text-gray-300">
-                        sent {new Date(message.created_at).toLocaleString()}
+                        enviar {new Date(message.created_at).toLocaleString()}
                     </p>
                 )}
                 <div className={`chat-image avatar w-10 ${!isSender && "-mr-4"}`}>
                     {isSender ? (
                         <Avatar
                             seed={chatbotName}
-                            className="h12 w-12 bg-white rounded-full border-2 border-[#2991EE]"
+                            className="h12 w-12 bg-white rounded-full border-[#2991EE]"
                         />
                     ) : (
                         <UserCircle className="text-[#2991EE]" />

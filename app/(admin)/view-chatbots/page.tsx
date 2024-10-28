@@ -63,12 +63,12 @@ async function ViewChatbots() {
                   <Avatar seed={chatbot.name} />
                   <h2 className="text-xl font-bold">{chatbot.name}</h2>
                 </div>
-                <p className="text-xs text-gray-400">
+                <p className="text-xs text-gray-400 whitespace-nowrap">
                   Criado: {new Date(chatbot.created_at).toLocaleString()}
                 </p>
               </div>
               <hr className="mt-2" />
-              <div className="grid grid-cols-2 gap-10 md:gap-5 p-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-5 p-5">
                 <h3 className="italic">Características:</h3>
                 <ul className="text-xs">
                   {!chatbot.chatbot_characteristics.length && (
